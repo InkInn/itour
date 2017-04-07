@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:aop="http://www.springframework.org/schema/aop" 
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:p="http://www.springframework.org/schema/p"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+           http://www.springframework.org/schema/context 
+           http://www.springframework.org/schema/context/spring-context-4.0.xsd
+           http://www.springframework.org/schema/aop 
+           http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+           http://www.springframework.org/schema/tx 
+           http://www.springframework.org/schema/tx/spring-tx-4.0.xsd">
+
+	 <!-- jdbc配置 -->
+    <context:property-placeholder location="classpath:config/jdbc.properties" />
+
+
+
+	<!-- 建立数据源 -->
+	<bean id="mainDataSource" class="org.apache.commons.dbcp.BasicDataSource"
+		destroy-method="close">
+		<!-- 数据库驱动，我这里使用的是Mysql数据库 -->
+		<property name="driverClassName">
+			<value>com.mysql.jdbc.Driver</value>
+		</property>
+		<!-- 数据库地址，这里也要注意一下编码 -->
+		<property name="url">
+			<value>${jdbc.url}</value>
+		</property>
+		<!-- 数据库的用户名 -->
+		<property name="username">
+			<value>${jdbc.username}</value>
+		</property>
+		<!-- 数据库的密码 -->
+		<property name="password">
+			<value>${jdbc.password}</value>
+		</property>
+
+		<property name="maxActive">
+			<value>${jdbc.maxActive}</value>
+		</property>
+
+		<property name="maxIdle">
+			<value>${jdbc.maxIdle}</value>
+		</property>
+
+		<property name="minIdle">
+			<value>${jdbc.minIdle}</value>
+		</property>
+
+		<property name="initialSize">
+			<value>${jdbc.initialSize}</value>
+		</property>
+
+		<property name="validationQuery">
+			<value>SELECT 1</value>
+		</property>
+
+		<property name="testWhileIdle">
+			<value>true</value>
+		</property>
+
+		<!-- 当timeBetweenEvictionRunsMillis大于0时， 每过timeBetweenEvictionRunsMillis 
+			时间，就会启动一个线程， 校验连接池中闲置时间超过minEvictableIdleTimeMillis的连接对象。 -->
+		<property name="timeBetweenEvictionRunsMillis">
+			<value>${jdbc.timeBetweenEvictionRunsMillis}</value>
+		</property>
+
+		<property name="minEvictableIdleTimeMillis">
+			<value>${jdbc.minEvictableIdleTimeMillis}</value>
+		</property>
+	</bean>
+
+	<!-- Spring bean configuration for LazyConnectionDataSourceProxy -->
+	<bean id="dataSource"
+		class="org.springframework.jdbc.datasource.LazyConnectionDataSourceProxy">
+		<property name="targetDataSource" ref="mainDataSource" />
+	</bean>
+
+	<bean id="transactionManager"
+		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	<tx:annotation-driven transaction-manager="transactionManager" />
+</beans>

@@ -1,0 +1,13 @@
+<top (changeProvince)="changeProvince($event)" (changeCity)="changeCity($event)"></top>
+<nav></nav>
+<div>
+    <ul>
+        <li *ngFor="let note of noteList">
+            <a href="#">
+                <h2>{{note.title}}</h2>
+                <p>{{note.outline}}</p>
+                <h3>{{note.author}}</h3>
+            </a>
+        </li>
+    </ul>
+</div>

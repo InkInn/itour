@@ -1,0 +1,20 @@
+<div>
+    <span>{{currentProvince?.name}}{{currentCity?.name}}</span>
+    <div class="selectbox selectbox4" style="z-index:5">
+        <div class="hd width clearfix" (mousedown)="showPro()">
+            <div class="ml10 fl">{{currentCity?.name}}</div><i></i></div>
+        <dl class="bd" [style.display]="openCity ? '':'none'">
+            <dd *ngFor="let city of cityList">
+                <a href="javascript:void(0);" (mousedown)="selectCity(city)" [class.on]="city == currentCity">{{city.name}}
+                </a>
+            </dd>
+        </dl>
+    </div>
+    <div class="selectbox  selectbox4 " style="z-index:5">
+        <div class="hd width clearfix" (mousedown)="showCity()">
+            <div class="ml10 fl">{{currentProvince?.name}}</div><i></i></div>
+        <dl class="bd" [style.display]="openProvince ? '':'none'">
+            <dd *ngFor="let province of provinceList"><a href="javascript:void(0);" (mousedown)="selectPro(province)" [class.on]="province == currentProvince">{{province.name}}</a></dd>
+        </dl>
+    </div>
+</div>

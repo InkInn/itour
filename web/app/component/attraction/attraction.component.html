@@ -1,0 +1,16 @@
+<top (changeProvince)="changeProvince($event)" (changeCity)="changeCity($event)"></top>
+<nav>
+</nav>
+<div>
+    <div class="photo" *ngFor="let tour of Tourist">
+        <div class="box1">
+            <h1>{{tour.name}}</h1>
+            <img src="http://www.wpthemegenerator.com/wp-content/uploads/2012/06/Image.jpg">
+            <p>
+                {{tour.introduc}}
+            </p>
+            <br />
+            <a href="http://www.designshock.com/"> DesignShock.com </a>
+        </div>
+    </div>
+</div>
