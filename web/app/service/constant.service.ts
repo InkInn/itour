@@ -19,12 +19,17 @@ export class ConstantService implements OnInit{
     /**
      * 选择省份
      */
-    provinces: Province[] = [];
+    provinces: Province[] = PROVINCE;
 
     /**
      * 选择城市
      */
     citys: City[] = [];
+
+    /**
+     * 当前省份
+     */
+    currentPro: Province;
 
 
     ngOnInit():void {
@@ -40,65 +45,68 @@ export class ConstantService implements OnInit{
     // }
 
 
-    // /**
-    //  * 当前选择年级
-    //  */
-    // public getCurrentProvince():Grade{
-    //     var gradeCode=this.cookieService.get("currentGradeCode");
-    //     if(!gradeCode){
-    //         if(this.grades && this.grades.length>0){
-    //             this.setCurrentGrade(this.grades[0]);
-    //             return this.grades[0];
-    //         }else{
-    //             return new Grade();
-    //         }
-    //     }else{
-    //         if(this.grades && this.grades.length>0){
-    //             for(var i=0;i<this.grades.length;i++){
-    //                 if(gradeCode==this.grades[i].code){
-    //                     return this.grades[i];
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     return new Grade();
-    // }
+    /**
+     * 当前选择省份
+     */
+    public getCurrentProvince():Province{
+        var provinceCode=this.cookieService.get("currentProCode");
+        if(!provinceCode){
+            if(this.provinces && this.provinces.length>0){
+                this.setCurrentPro(this.provinces[0]);
+                this.currentPro = this.provinces[0];
+                return this.provinces[0];
+            }else{
+                return new Province();
+            }
+        }else{
+            if(this.provinces && this.provinces.length>0){
+                for(var i=0;i<this.provinces.length;i++){
+                    if(provinceCode == this.provinces[i].code){
+                        this.currentPro = this.provinces[i];
+                        return this.provinces[i];
+                    }
+                }
+            }
+        }
+        return new Province();
+    }
 
-    // public setCurrentGrade(grade:Grade):void{
-    //     if(grade){
-    //         this.cookieService.put("currentGradeCode",grade.code);
-    //     }
-    // }
+    public setCurrentPro(province:Province):void{
+        if(Province){
+            this.cookieService.put("currentProCode",province.code);
+        }
+    }
 
-    // /**
-    //  * 当前选择学科
-    //  */
-    // public getCurrentSubject():Subject{
-    //     var subjectCode=this.cookieService.get("currentSubjectCode");
-    //     if(!subjectCode){
-    //         if(this.subjects && this.subjects.length>0){
-    //             this.setCurrentSubject(this.subjects[0]);
-    //             return this.subjects[0];
-    //         }else{
-    //             return new Subject();
-    //         }
-    //     }else{
-    //         if(this.subjects && this.subjects.length>0){
-    //             for(var i=0;i<this.subjects.length;i++){
-    //                 if(subjectCode==this.subjects[i].code){
-    //                     return this.subjects[i];
-    //                 }
-    //             }
-    //         }
-    //     }
-    //     return new Subject();
-    // }
+    /**
+     * 当前选择城市
+     */
+    public getCurrentCity():City{
+        var cityCode=this.cookieService.get("currentCityCode");
+        this.citys = this.currentPro.citys;
+        if(!cityCode){
+            if(this.citys && this.citys.length>0){
+                this.setCurrentCity(this.citys[0]);
+                return this.citys[0];
+            }else{
+                return new City();
+            }
+        }else{
+            if(this.citys && this.citys.length>0){
+                for(var i=0;i<this.citys.length;i++){
+                    if(cityCode==this.citys[i].code){
+                        return this.citys[i];
+                    }
+                }
+            }
+        }
+        return new City();
+    }
 
-    // public setCurrentSubject(subject:Subject):void{
-    //     if(subject){
-    //         this.cookieService.put("currentSubjectCode",subject.code);
-    //     }
-    // }
+    public setCurrentCity(city:City):void{
+        if(city){
+            this.cookieService.put("currentCityCode",city.code);
+        }
+    }
 
     public getCurrentBlock():Block{
         var url=this.cookieService.get("currentBlockUrl");

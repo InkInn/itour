@@ -11,13 +11,16 @@ import {NavComponent} from "./component/nav/nav.component";
 import {TopComponent} from "./component/top/top.component";
 import {AttractComponent} from "./component/attraction/attraction.component";
 import {NotesComponent} from "./component/notes/notes.component";
+import {AreaService} from "./service/area.service";
+import {ConstantService} from "./service/constant.service";
+import {CookieService} from "angular2-cookie/core";
 
 
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule,PaginatorModule,CommonModule,AppRoutingModule],
     declarations: [AppComponent,AttractComponent,NotesComponent,NavComponent,TopComponent],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},AreaService,CookieService,ConstantService],
     bootstrap: [AppComponent]
 })
 export class AppModule {

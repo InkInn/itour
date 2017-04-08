@@ -44,6 +44,13 @@ export class AttractComponent implements OnInit {
     //     this.chart = echarts.init(this.main.nativeElement, 'vintage');
     //     this.chart.setOption(option);
     // }
+    changeProvince(currentProvince:Province):void{
+
+    }
+
+    changeCity(currentCity: City):void{
+        
+    }
 
 }
 

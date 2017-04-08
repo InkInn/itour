@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ValueProvider, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Directive, ElementRef, HostBinding, OnChanges, OnDestroy } from '@angular/core';
-import {Note} from "../../model/model";
+import {City,Province,Block,Tourist,Note} from "../../model/model";
 import { NOTES } from "../../mock/notes.mock";
 import {  Subscription } from "rxjs";
 import 'rxjs/add/operator/switchMap';
@@ -34,6 +34,13 @@ export class NotesComponent implements OnInit {
     //     this.chart.setOption(option);
     // }
 
+    changeProvince(currentProvince:Province):void{
+
+    }
+
+    changeCity(currentCity: City):void{
+        
+    }
 }
 
 

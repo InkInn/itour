@@ -1,11 +1,17 @@
-import { Component, OnInit, EventEmitter, Input, Output, Renderer, OnDestroy } from '@angular/core';
+import { Component, OnInit, EventEmitter, Input, Output, Renderer, OnDestroy,ViewEncapsulation } from '@angular/core';
 import { City, Province } from '../../model/model';
 import { PROVINCE } from "../../mock/tour.mock";
 import { SHANXI } from "../../mock/city.mock";
+import{ AreaService }from "../../service/area.service";
+import{ ConstantService }from "../../service/constant.service";
 
 @Component({
+    encapsulation: ViewEncapsulation.None,
     selector: 'top',
     templateUrl: 'app/component/top/top.component.html',
+        styleUrls: [
+           "public/common/css/top.css"
+    ]
 })
 export class TopComponent implements OnInit, OnDestroy {
 
@@ -59,14 +65,15 @@ export class TopComponent implements OnInit, OnDestroy {
     @Output() changeCity = new EventEmitter<City>();
 
 
-    constructor(private renderer: Renderer) {
+    constructor(private renderer: Renderer,
+                private constantService: ConstantService,
+                private areaService: AreaService,) {
     }
 
     //初始化加载
     ngOnInit():void {
         //加载当前的省市列表
         this.provinceList = PROVINCE;
-        this.cityList = SHANXI;
         this.loadPro();
         this.loadCity();
     }
@@ -76,12 +83,12 @@ export class TopComponent implements OnInit, OnDestroy {
     }
 
     loadPro():void{
-        this.currentProvince = PROVINCE[0];
+        this.currentProvince = this.constantService.getCurrentProvince();
     }
 
 
     loadCity(): void {
-        this.currentCity = SHANXI[0];
+        this.currentCity = this.constantService.getCurrentCity();;
     }
 
     /**
@@ -89,10 +96,16 @@ export class TopComponent implements OnInit, OnDestroy {
      */
     selectPro(province: Province): void{
         //设置当前省份 切换省份
-        //this.constantService.setCurrentGrade(grade);
+        this.constantService.setCurrentPro(province);
         this.loadPro();
         this.showPro();
         this.changeProvince.emit(this.currentProvince);
+        this.areaService.getCitys(this.currentProvince.code).then(
+            list=>{
+                    this.cityList = list;
+                    this.currentCity = list[0];
+         })
+         
     }
 
     /**
@@ -100,7 +113,7 @@ export class TopComponent implements OnInit, OnDestroy {
      */
     selectCity(city: City): void{
         //设置当前城市 切换城市
-        //this.constantService.setCurrentSubject(subject);
+        this.constantService.setCurrentCity(city);
         this.loadCity();
         this.showCity();
         this.changeCity.emit(this.currentCity);
