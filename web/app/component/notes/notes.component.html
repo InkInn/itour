@@ -3,10 +3,10 @@
 <div style="float: left">
     <ul>
         <li *ngFor="let note of noteList">
-            <a href="#">
+            <a>
                 <h2>{{note.title}}</h2>
                 <p>{{note.outline}}</p>
-                <h3>{{note.author}}</h3>
+                <h3>{{note.authorName}}</h3>
             </a>
         </li>
     </ul>

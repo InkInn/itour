@@ -14,7 +14,7 @@ import com.itour.api.service.TestService;
 import com.itour.dto.JsonResultHaveObj;
 
 @Controller
-@RequestMapping(value = "/test")
+@RequestMapping(value = "/itour")
 public class TestController {
 	
 	@Autowired

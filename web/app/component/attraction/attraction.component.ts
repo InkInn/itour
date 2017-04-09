@@ -5,7 +5,9 @@ import * as echarts from 'echarts';
 import * as events from 'events';
 import ECharts = echarts.ECharts;
 import EChartOption = echarts.EChartOption;
-import {City,Province,Block,Tourist} from "../../model/model";
+import {City,Province,Block,Arrraction} from "../../model/model";
+import{ AttractionService }from "../../service/attraction.service";
+import{ ConstantService }from "../../service/constant.service";
 import { PROVINCE } from "../../mock/tour.mock";
 import { BLOCK } from "../../mock/block.mock";
 import { TOURIST } from "../../mock/tourist.mock";
@@ -22,34 +24,42 @@ import 'rxjs/add/operator/switchMap';
 })
 export class AttractComponent implements OnInit {
 
-    private provinceList : Province[] = PROVINCE;
+    private provinceList : Province[];
 
     private blockList : Block[] = BLOCK;
 
-    private Tourist : Tourist[] = TOURIST;
+    private tourist : Arrraction[];
 
     constructor(
         private route: ActivatedRoute,
+        private attractionService:AttractionService,
+        private constantService: ConstantService,
         private router: Router,
         private el: ElementRef) {
     }
 
     //初始化加载
     ngOnInit():void {
-     // this.initEcharts();
+        this.loadAttraction();
     }
 
-    //     initEcharts(): void {
-
-    //     this.chart = echarts.init(this.main.nativeElement, 'vintage');
-    //     this.chart.setOption(option);
-    // }
     changeProvince(currentProvince:Province):void{
-
+        this.loadAttraction();
     }
 
-    changeCity(currentCity: City):void{
-        
+    changeCity(currentCity: City):void{  
+        this.loadAttraction();
+    }
+
+
+    loadAttraction(){
+            let proCode = this.constantService.getCurrentProvince().proCode;
+            let cityCode = this.constantService.getCurrentCity().cityCode;
+            this.attractionService.getAttractions(proCode,cityCode).then(
+            result => {
+                    this.tourist = result;
+            }
+        )
     }
 
 }

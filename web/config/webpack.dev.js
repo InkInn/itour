@@ -6,8 +6,8 @@ module.exports = webpackMerge(commonConfig, {
         historyApiFallback: true,
         stats: 'minimal',
         proxy: {
-            '/api': {
-                target: 'http://localhost:8912/teaResearch',
+            '/itour': {
+                target: 'http://localhost:8090/itour',
                 secure: false
             }
         }

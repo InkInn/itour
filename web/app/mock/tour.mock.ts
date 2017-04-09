@@ -3,13 +3,15 @@ import {SHANXI,ANHUI} from "../mock/city.mock";
 
 export const PROVINCE: Province[] = [
     {
-        name:'陕西',
-        code:'01',
-        citys:SHANXI,
+        proName:'陕西',
+        proCode:'01',
+        countryCode:'01',
+        cityList:SHANXI,
     },
     {
-        name: '安徽',
-        code: '02',
-        citys: ANHUI,
+        proName: '安徽',
+        proCode: '02',
+        countryCode:'01',
+        cityList: ANHUI,
     }
 ]

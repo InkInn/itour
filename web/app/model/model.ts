@@ -2,17 +2,20 @@
  * 城市
  */
 export class City{
-    public name: string;
-    public code: string;
+    public cityName: string;
+    public cityCode: string;
+	public proCode: string;
 }
 
 /**
  * 省
  */
 export class Province{
-    public name: string;
-    public code: string;
-    public citys: City[];
+    public proName: string;
+    public proCode: string;
+    public cityList: City[];
+	public countryCode: string;
+	
 }
 
 /**
@@ -26,10 +29,10 @@ export class Block{
 /**
  * 景点
  */
-export class Tourist{
+export class Arrraction{
     public name: string;
     public introduc: string;
-    public image: string;
+    public imgUrl: string;
 }
 
 /**

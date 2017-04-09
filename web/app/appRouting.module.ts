@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import {AttractComponent} from "./component/attraction/attraction.component";
 import {NotesComponent} from "./component/notes/notes.component";
+import {AppResolver} from "./app.resolver";
 
 
 
@@ -11,10 +12,8 @@ import {NotesComponent} from "./component/notes/notes.component";
             [
                 { path: '',
                     resolve: {
-                        // userGradeSubject: AppResolver
+                         list: AppResolver
                     },
-                   /* redirectTo: '/teachingEmphasis',
-                    pathMatch: 'full',*/
                     children: [
                         {path: '',redirectTo: '/attract',pathMatch: 'full'},
                         { path: 'attract', component: AttractComponent},

@@ -13,14 +13,17 @@ import {AttractComponent} from "./component/attraction/attraction.component";
 import {NotesComponent} from "./component/notes/notes.component";
 import {AreaService} from "./service/area.service";
 import {ConstantService} from "./service/constant.service";
+import {AttractionService} from "./service/attraction.service";
+import {NoteService} from "./service/note.service";
 import {CookieService} from "angular2-cookie/core";
+import {AppResolver} from "./app.resolver";
 
 
 
 @NgModule({
     imports: [BrowserModule, FormsModule, HttpModule,PaginatorModule,CommonModule,AppRoutingModule],
     declarations: [AppComponent,AttractComponent,NotesComponent,NavComponent,TopComponent],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},AreaService,CookieService,ConstantService],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},NoteService,AttractionService,AreaService,CookieService,ConstantService,AppResolver],
     bootstrap: [AppComponent]
 })
 export class AppModule {

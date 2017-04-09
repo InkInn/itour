@@ -19,7 +19,7 @@ export class ConstantService implements OnInit{
     /**
      * 选择省份
      */
-    provinces: Province[] = PROVINCE;
+    provinces: Province[];
 
     /**
      * 选择城市
@@ -36,13 +36,12 @@ export class ConstantService implements OnInit{
 
     }
 
-    // public load(userGradeSubject:UserGradeSubject):void{
-    //     if(userGradeSubject){
-    //         this.grades=userGradeSubject.grades;
-    //         this.subjects=userGradeSubject.subjects;
-    //         this.school=userGradeSubject.school;
-    //     }
-    // }
+    public load(list:Province[]):void{
+        if(list){
+            this.provinces = list;
+            this.citys = list[0].cityList;
+        }
+    }
 
 
     /**
@@ -61,7 +60,7 @@ export class ConstantService implements OnInit{
         }else{
             if(this.provinces && this.provinces.length>0){
                 for(var i=0;i<this.provinces.length;i++){
-                    if(provinceCode == this.provinces[i].code){
+                    if(provinceCode == this.provinces[i].proCode){
                         this.currentPro = this.provinces[i];
                         return this.provinces[i];
                     }
@@ -73,7 +72,7 @@ export class ConstantService implements OnInit{
 
     public setCurrentPro(province:Province):void{
         if(Province){
-            this.cookieService.put("currentProCode",province.code);
+            this.cookieService.put("currentProCode",province.proCode);
         }
     }
 
@@ -82,7 +81,7 @@ export class ConstantService implements OnInit{
      */
     public getCurrentCity():City{
         var cityCode=this.cookieService.get("currentCityCode");
-        this.citys = this.currentPro.citys;
+        this.citys = this.currentPro.cityList;
         if(!cityCode){
             if(this.citys && this.citys.length>0){
                 this.setCurrentCity(this.citys[0]);
@@ -93,7 +92,7 @@ export class ConstantService implements OnInit{
         }else{
             if(this.citys && this.citys.length>0){
                 for(var i=0;i<this.citys.length;i++){
-                    if(cityCode==this.citys[i].code){
+                    if(cityCode==this.citys[i].cityCode){
                         return this.citys[i];
                     }
                 }
@@ -104,8 +103,12 @@ export class ConstantService implements OnInit{
 
     public setCurrentCity(city:City):void{
         if(city){
-            this.cookieService.put("currentCityCode",city.code);
+            this.cookieService.put("currentCityCode",city.cityCode);
         }
+    }
+
+    public clearCurrentCity():void{
+        this.cookieService.remove("currentCityCode");
     }
 
     public getCurrentBlock():Block{

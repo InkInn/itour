@@ -33,7 +33,7 @@ export class TopComponent implements OnInit, OnDestroy {
     /**
      * 市列表
      */
-    private cityList: City[];
+    cityList: City[];
 
     /**
      * 隐藏省份选择
@@ -73,7 +73,7 @@ export class TopComponent implements OnInit, OnDestroy {
     //初始化加载
     ngOnInit():void {
         //加载当前的省市列表
-        this.provinceList = PROVINCE;
+        this.provinceList = this.constantService.provinces;
         this.loadPro();
         this.loadCity();
     }
@@ -84,6 +84,7 @@ export class TopComponent implements OnInit, OnDestroy {
 
     loadPro():void{
         this.currentProvince = this.constantService.getCurrentProvince();
+        this.cityList = this.constantService.getCurrentProvince().cityList;
     }
 
 
@@ -97,15 +98,12 @@ export class TopComponent implements OnInit, OnDestroy {
     selectPro(province: Province): void{
         //设置当前省份 切换省份
         this.constantService.setCurrentPro(province);
+        this.constantService.clearCurrentCity();
+        this.cityList = province.cityList;
         this.loadPro();
+        this.loadCity();
         this.showPro();
         this.changeProvince.emit(this.currentProvince);
-        this.areaService.getCitys(this.currentProvince.code).then(
-            list=>{
-                    this.cityList = list;
-                    this.currentCity = list[0];
-         })
-         
     }
 
     /**

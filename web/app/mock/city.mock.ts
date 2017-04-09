@@ -1,22 +1,26 @@
 import {City} from "../model/model";
 export const SHANXI: City[] = [
     {
-        name:'西安',
-        code:'01',
+        cityName:'西安',
+        cityCode:'01',
+        proCode:'01',
     },
     {
-        name: '延安',
-        code: '02',
+        cityName: '延安',
+        cityCode: '02',
+        proCode:'01',
     },
 ]
 
 export const ANHUI: City[] = [
     {
-        name:'合肥',
-        code:'01',
+        cityName:'合肥',
+        cityCode:'01',
+        proCode:'02',
     },
     {
-        name:'黄山',
-        code:'02',
+        cityName:'黄山',
+        cityCode:'02',
+        proCode:'02',
     },
 ]
