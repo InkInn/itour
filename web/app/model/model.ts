@@ -43,3 +43,12 @@ export class Note{
     public outline: string;
     public author: string;
 }
+
+/**
+ * 用户
+ */
+export class User{
+    public userId: string;
+    public loginName: string;
+    public password: string;
+}

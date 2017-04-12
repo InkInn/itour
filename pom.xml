@@ -13,7 +13,7 @@
     <properties>
     <spring.version>4.0.6.RELEASE</spring.version>
     <mysql.version>5.1.29</mysql.version>
-    <junit.version>3.8.1</junit.version>
+    <junit.version>4.8.1</junit.version>
   </properties>
   
     <dependencies>
@@ -44,6 +44,16 @@
         <artifactId>spring-context-support</artifactId>
         <version>${spring.version}</version>
     </dependency>
+    <dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-test</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
+	<dependency>
+		<groupId>org.springframework</groupId>
+		<artifactId>spring-context</artifactId>
+		<version>${spring.version}</version>
+	</dependency>
     <dependency>
         <groupId>org.springframework</groupId>
         <artifactId>spring-tx</artifactId>
@@ -98,6 +108,12 @@
         <artifactId>jackson-mapper-asl</artifactId>
         <version>1.9.13</version>
     </dependency>
+    
+    <dependency>
+		<groupId>com.alibaba</groupId>
+		<artifactId>fastjson</artifactId>
+		<version>1.2.8</version>
+	</dependency>
 
     <!-- log4j日志包 -->
     <dependency>

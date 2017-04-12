@@ -2,7 +2,7 @@ import { Injectable,OnInit } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {CookieService} from "angular2-cookie/core";
-import {Block,Province,City} from "../model/model";
+import {Block,Province,City,User} from "../model/model";
 import {BLOCK} from "../mock/block.mock";
 import {PROVINCE} from "../mock/tour.mock";
 import {SHANXI} from "../mock/city.mock";
@@ -136,5 +136,36 @@ export class ConstantService implements OnInit{
         if(block){
             this.cookieService.put("currentBlockUrl",block.url);
         }
+    }
+
+
+    /**
+     * 获取当前用户
+     */
+    public getCurrentUser(): User {
+        let user: User = new User();
+        user.userId = this.cookieService.get("currentUserId");
+        user.loginName = this.cookieService.get("currentUserLoginName");
+        user.password = this.cookieService.get("currentUserPassword");
+        return user;
+    }
+    /**
+     * 设置当前用户
+     */
+    public setCurrentUser(user: User): void {
+        if (user) {
+            this.cookieService.put("currentUserId", user.userId);
+            this.cookieService.put("currentUserLoginName", user.loginName);
+            this.cookieService.put("currentUserPassword", user.password);
+        }
+    }
+    /**
+     * 
+     * 用户退出，清除当前cookie
+     */
+    public clearCurrentUser(): void{
+        this.cookieService.remove("currentUserId");
+        this.cookieService.remove("currentUserLoginName");
+        this.cookieService.remove("currentUserPassword");
     }
 }

@@ -1,23 +1,28 @@
 package com.itour.service;
 
 import java.util.List;
-
 import javax.annotation.Resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.test.context.ContextConfiguration;
+import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import org.junit.Test;
+import org.junit.runner.RunWith;
 
 import com.itour.api.model.Province;
 import com.itour.api.service.AreaService;
 
+@RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:config/applicationContext_*.xml" })
 public class AreaServiceTest {
 	
-	@Resource
+	@Autowired
 	AreaService areaService;
 	
 	@Test
 	public void testSelectPros(){
+		System.out.println("***********************");
 		List<Province> list = areaService.selectPros();
 		System.out.println(list);
 	}
