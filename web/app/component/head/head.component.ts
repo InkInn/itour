@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from "../../model/model";
@@ -7,7 +6,7 @@ import { UserService } from "../../service/user.service";
 import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'primeng/primeng';
 
 @Component({
-    selector: 'batten',
+    selector: 'header',
     templateUrl: 'app/component/head/head.component.html',
     styleUrls: [
         "public/common/css/head.css"
