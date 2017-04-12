@@ -3,7 +3,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from "../../model/model";
 import { ConstantService } from "../../service/constant.service";
-import { TabViewModule } from 'primeng/primeng';
+import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'primeng/primeng';
 
 @Component({
     selector: 'head',
@@ -23,8 +23,13 @@ import { TabViewModule } from 'primeng/primeng';
     //当前登录用户
     private currentUser: User;
 
+    //登录用户
+    private loginUser: User;
+
     //注册用户
     private registerUser: User;
+
+    private confirmPassword: string;
 
 
 
@@ -52,9 +57,19 @@ import { TabViewModule } from 'primeng/primeng';
     login(): void{
         
     }
+
+    //提交登录资料
+    confirmLogin(): void{
+        
+    }
     //注册提交
     register(): void{
         
+    }
+
+    //提交注册资料
+    confirmRegister(): void {
+
     }
 
 }
