@@ -33,7 +33,7 @@ export class TopComponent implements OnInit, OnDestroy {
     /**
      * 市列表
      */
-    cityList: City[];
+    cityList: City[] = [];
 
     /**
      * 隐藏省份选择

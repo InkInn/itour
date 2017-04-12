@@ -19,7 +19,7 @@ export class ConstantService implements OnInit{
     /**
      * 选择省份
      */
-    provinces: Province[];
+    provinces: Province[] = [];
 
     /**
      * 选择城市

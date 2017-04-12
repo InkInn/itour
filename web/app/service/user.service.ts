@@ -20,8 +20,8 @@ export class UserService {
         let headers = new Headers();
         headers.set('Accept', 'application/json');
 
-        params.append('proCode', user.loginName);
-        params.append('cityCode', user.password);
+        params.append('loginName', user.loginName);
+        params.append('password', user.password);
 
         return this.http.get(`${this.urlPrefix}/login`, { search: params, headers: headers })
             .toPromise()
@@ -38,8 +38,8 @@ export class UserService {
         let headers = new Headers();
         headers.set('Accept', 'application/json');
 
-        params.append('proCode', user.loginName);
-        params.append('cityCode', user.password);
+        params.append('loginName', user.loginName);
+        params.append('password', user.password);
 
         return this.http.get(`${this.urlPrefix}/register`, { search: params, headers: headers })
             .toPromise()

@@ -52,27 +52,27 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
         }
     }
 
-    //弹出登录页面或者注册页面
-    inputView(): void{
 
-    }    
 
     //登录提交
     login(): void{
-        this.userService.login(this.loginUser);
+        //this.userService.login(this.loginUser);
+        this.currentUser.loginName ="21312";
+           this.isLogin = 1;
         
     }
 
     //注册提交
     register(): void{
-        this.userService.register(this.registerUser);
+        //this.userService.register(this.registerUser);
     }
 
     //退出
     loginout(): void{
         //清空cookie 刷新当前用户
-        this.constantService.clearCurrentUser();
-        this.getCurrentUser();
+        // this.constantService.clearCurrentUser();
+        // this.getCurrentUser();
+        this.isLogin = 0;
     }
 
 }
