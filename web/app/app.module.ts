@@ -11,11 +11,13 @@ import { NavComponent } from "./component/nav/nav.component";
 import { HeadComponent } from "./component/head/head.component";
 import {TopComponent} from "./component/top/top.component";
 import {AttractComponent} from "./component/attraction/attraction.component";
-import {NotesComponent} from "./component/notes/notes.component";
+import { NotesComponent } from "./component/notes/notes.component";
+import { TestComponent } from "./component/ztest/test.component";
 import {AreaService} from "./service/area.service";
 import {ConstantService} from "./service/constant.service";
 import {AttractionService} from "./service/attraction.service";
-import {NoteService} from "./service/note.service";
+import { NoteService } from "./service/note.service";
+import { UserService } from "./service/user.service";
 import {CookieService} from "angular2-cookie/core";
 import { AppResolver } from "./app.resolver";
 import { TabViewModule, PasswordModule,ButtonModule,InputTextModule} from 'primeng/primeng';
@@ -23,9 +25,9 @@ import { TabViewModule, PasswordModule,ButtonModule,InputTextModule} from 'prime
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, PaginatorModule, CommonModule, AppRoutingModule, ButtonModule,TabViewModule,PasswordModule],
-    declarations: [AppComponent, AttractComponent, NotesComponent, NavComponent, TopComponent, HeadComponent],
-    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy},NoteService,AttractionService,AreaService,CookieService,ConstantService,AppResolver],
+    imports: [BrowserModule, FormsModule, HttpModule, PaginatorModule, CommonModule, AppRoutingModule, ButtonModule, TabViewModule, PasswordModule],
+    declarations: [AppComponent, AttractComponent, NotesComponent, NavComponent, TopComponent, HeadComponent, TestComponent],
+    providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, NoteService, AttractionService, AreaService,UserService,CookieService,ConstantService,AppResolver],
     bootstrap: [AppComponent]
 })
 export class AppModule {

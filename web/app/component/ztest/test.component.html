@@ -1,14 +1,6 @@
-<div [ngSwitch]="isLogin">
-    <div *ngSwitchCase=1>
-        <button pButton type="text" (click)="inputView()" label="登录"></button>
-        <button pButton type="text" (click)="inputView()" label="注册"></button>
-    </div>
-    <div *ngSwitchCase=0>
-        <p>欢迎访问Google</p>
-        <button pButton type="text" (click)="loginout()" label="注销"></button>
-    </div>
+<div>
 </div>
-<!--<div>
+<div>
     <p-tabView>
         <p-tabPanel header="登录">
             <div>
@@ -22,9 +14,9 @@
             <h3 class="first">用户名</h3>
             <input type="text" pInputText [(ngModel)]="registerUser.loginName" />
             <h3 class="first">密码</h3>
-            <input type="password" pPassword [(ngModel)]="registerUser.password" />
+            <input type="password" [(ngModel)]="registerUser.password" />
             <h3 class="first">确认密码</h3>
             <input type="password" [(ngModel)]="confirmPassword" />
         </p-tabPanel>
     </p-tabView>
-</div>-->
+</div>

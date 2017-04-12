@@ -2,7 +2,8 @@ import { Injectable,OnInit } from '@angular/core';
 import { Http, Headers, Response, URLSearchParams } from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 import {CookieService} from "angular2-cookie/core";
-import {Arrraction} from "../model/model";
+import { Arrraction } from "../model/model";
+import { TOURIST } from "../mock/tourist.mock";
 
 @Injectable()
 export class AttractionService {
@@ -15,18 +16,20 @@ export class AttractionService {
     /**
      * 获取景点
      */
-    getAttractions(proCode:string,cityCode:string):Promise<Arrraction[]>{
-            let params = new URLSearchParams();
-            let headers = new Headers();
-            headers.set('Accept', 'application/json');
+    getAttractions(proCode: string, cityCode: string): Promise<Arrraction[]>{
+        let tmp: Arrraction[] = [];
+        return Promise.resolve(tmp);
+            // let params = new URLSearchParams();
+            // let headers = new Headers();
+            // headers.set('Accept', 'application/json');
 
-            params.append('proCode',proCode);
-            params.append('cityCode',cityCode);
+            // params.append('proCode',proCode);
+            // params.append('cityCode',cityCode);
 
-            return this.http.get(`${this.urlPrefix}/getAttractions`, { search: params, headers: headers })
-                .toPromise()
-                .then(this.extractData)
-                .catch(this.handleError);
+            // return this.http.get(`${this.urlPrefix}/getAttractions`, { search: params, headers: headers })
+            //     .toPromise()
+            //     .then(this.extractData)
+            //     .catch(this.handleError);
 
     }
 

@@ -7,20 +7,20 @@ import { UserService } from "../../service/user.service";
 import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'primeng/primeng';
 
 @Component({
-    selector: 'batten',
-    templateUrl: 'app/component/head/head.component.html',
-    styleUrls: [
-        "public/common/css/head.css"
-    ]
-}) export class HeadComponent implements OnInit {
+    selector: 'test',
+    templateUrl: 'app/component/ztest/test.component.html',
+    // styleUrls: [
+    //     "public/common/css/test.css"
+    // ]
+}) export class TestComponent implements OnInit {
 
     constructor(private route: ActivatedRoute,
                 private constantService: ConstantService,
                 private userService: UserService,
                 private router: Router) { }
 
-    //用户状态  当前是否登登录 0:未登录，1:登录
-    private isLogin: number = 0;
+    //用户状态  当前是否登登录
+    private isLogin: boolean = false;
 
     //当前登录用户
     private currentUser: User = new User();
@@ -44,11 +44,11 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
     getCurrentUser(): void {
         this.currentUser = this.constantService.getCurrentUser();
         //当前用户未登录
-        if (this.currentUser.loginName == null) {
-            this.isLogin = 0;
+        if (this.currentUser == null) {
+            this.isLogin = false;
         } else {
             //当前有用户登录
-            this.isLogin = 1;
+            this.isLogin = true;
         }
     }
 
