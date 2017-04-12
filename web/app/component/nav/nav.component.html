@@ -1,3 +1,7 @@
 <div class="box bg-1">
     <button class="button button--ujarak button--border-medium button--round-s button--text-thick" *ngFor="let block of blocks" (mousedown)="changeBlock(block)">{{block.name}}</button>
 </div>
+
+<ul class="nav nav-pills">
+    <li role="presentation" *ngFor="let block of blocks"><a>{{block.name}}</a></li>
+</ul>
