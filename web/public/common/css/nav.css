@@ -133,12 +133,13 @@
 
 .button--ujarak::before {
     content: '';
+    color: #ECEFF1;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background: #37474f;
+    background: rgba(55, 71, 79, 0.5);
     z-index: -1;
     opacity: 0;
     -webkit-transform: scale3d(0.7, 1, 1);
@@ -174,6 +175,7 @@
 }
 
 .button--ujarak:hover::before {
+    color: #fff;
     opacity: 1;
     -webkit-transform: translate3d(0, 0, 0);
     transform: translate3d(0, 0, 0);
