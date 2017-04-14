@@ -1,5 +1,5 @@
-import {Arrraction} from "../model/model";
-export const TOURIST: Arrraction[] = [
+import {Attraction} from "../model/model";
+export const TOURIST: Attraction[] = [
     {
         name: '华清池',
         introduc: '华清宫是唐代封建帝王游幸的别宫。背山面渭，倚骊峰山势而筑，规模宏大，建筑壮丽，楼台馆殿，遍布骊山上下。唐诗人白居易《骊宫高》诗曰：“高高骊山上有宫， 朱楼紫殿三四重”。',

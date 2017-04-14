@@ -20,12 +20,12 @@ import { NoteService } from "./service/note.service";
 import { UserService } from "./service/user.service";
 import {CookieService} from "angular2-cookie/core";
 import { AppResolver } from "./app.resolver";
-import { TabViewModule, PasswordModule,ButtonModule,InputTextModule} from 'primeng/primeng';
+import { TabViewModule, PasswordModule, ButtonModule, InputTextModule,EditorModule, SharedModule} from 'primeng/primeng';
 
 
 
 @NgModule({
-    imports: [BrowserModule, FormsModule, HttpModule, PaginatorModule, CommonModule, AppRoutingModule, ButtonModule, TabViewModule, PasswordModule],
+    imports: [BrowserModule, FormsModule, HttpModule, PaginatorModule, CommonModule, AppRoutingModule, ButtonModule, TabViewModule, PasswordModule, EditorModule, SharedModule],
     declarations: [AppComponent, AttractComponent, NotesComponent, NavComponent, TopComponent, HeadComponent, TestComponent],
     providers: [{ provide: LocationStrategy, useClass: HashLocationStrategy }, NoteService, AttractionService, AreaService,UserService,CookieService,ConstantService,AppResolver],
     bootstrap: [AppComponent]

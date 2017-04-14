@@ -4,7 +4,7 @@ import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from "../../model/model";
 import { ConstantService } from "../../service/constant.service";
 import { UserService } from "../../service/user.service";
-import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'primeng/primeng';
+import { TabViewModule, PasswordModule, InputTextModule, ButtonModule, EditorModule, SharedModule} from 'primeng/primeng';
 
 @Component({
     selector: 'test',
@@ -32,6 +32,10 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
     private registerUser: User = new User();
 
     private confirmPassword: string = '';
+
+    private text1: string = '';
+    private text2: string = '';
+
 
 
 

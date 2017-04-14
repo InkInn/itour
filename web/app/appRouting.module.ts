@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, PreloadAllModules } from '@angular/router';
 import {AttractComponent} from "./component/attraction/attraction.component";
-import {NotesComponent} from "./component/notes/notes.component";
+import { NotesComponent } from "./component/notes/notes.component";
+import { TestComponent } from "./component/ztest/test.component";
 import {AppResolver} from "./app.resolver";
 
 
@@ -16,7 +17,7 @@ import {AppResolver} from "./app.resolver";
                     },
                     children: [
                         {path: '',redirectTo: '/attract',pathMatch: 'full'},
-                        { path: 'attract', component: AttractComponent},
+                        { path: 'attract', component: TestComponent},
                         { path: 'notes', component: NotesComponent},
                     ]},
 

@@ -1,7 +1,7 @@
 import { Component, Input, OnInit, ValueProvider, ViewChild, ViewEncapsulation } from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { Directive, ElementRef, HostBinding, OnChanges, OnDestroy } from '@angular/core';
-import {City,Province,Block,Arrraction,Note} from "../../model/model";
+import {City,Province,Block,Attraction,Note} from "../../model/model";
 import { NOTES } from "../../mock/notes.mock";
 import {  Subscription } from "rxjs";
 import 'rxjs/add/operator/switchMap';

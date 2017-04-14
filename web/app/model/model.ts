@@ -29,7 +29,7 @@ export class Block{
 /**
  * 景点
  */
-export class Arrraction{
+export class Attraction{
     public name: string;
     public introduc: string;
     public imgUrl: string;

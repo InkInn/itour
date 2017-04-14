@@ -5,13 +5,16 @@ import * as echarts from 'echarts';
 import * as events from 'events';
 import ECharts = echarts.ECharts;
 import EChartOption = echarts.EChartOption;
-import {City,Province,Block,Arrraction} from "../../model/model";
+import {City,Province,Block,Attraction} from "../../model/model";
 import{ AttractionService }from "../../service/attraction.service";
 import{ ConstantService }from "../../service/constant.service";
 import { PROVINCE } from "../../mock/tour.mock";
 import { BLOCK } from "../../mock/block.mock";
 import { TOURIST } from "../../mock/tourist.mock";
-import {  Subscription } from "rxjs";
+import { Subscription } from "rxjs";
+import { EditorModule, SharedModule, InputTextModule, ButtonModule } from 'primeng/primeng';
+import { } from 'quill';
+
 import 'rxjs/add/operator/switchMap';
 
 
@@ -28,7 +31,10 @@ export class AttractComponent implements OnInit {
 
     private blockList : Block[] = BLOCK;
 
-    private tourist : Arrraction[];
+    private tourist: Attraction[];
+    
+    private addAttraction: Attraction = new Attraction();
+    
 
     constructor(
         private route: ActivatedRoute,
@@ -51,6 +57,9 @@ export class AttractComponent implements OnInit {
         this.loadAttraction();
     }
 
+    add(attraction: Attraction): void{
+        
+    }
 
     loadAttraction(){
             let proCode = this.constantService.getCurrentProvince().proCode;
