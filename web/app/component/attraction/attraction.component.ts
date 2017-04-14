@@ -58,7 +58,7 @@ export class AttractComponent implements OnInit {
     }
 
     add(attraction: Attraction): void{
-        
+        this.attractionService.addAttractions(attraction); 
     }
 
     loadAttraction(){

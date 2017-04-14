@@ -17,7 +17,7 @@ import {AppResolver} from "./app.resolver";
                     },
                     children: [
                         {path: '',redirectTo: '/attract',pathMatch: 'full'},
-                        { path: 'attract', component: TestComponent},
+                        { path: 'attract', component: AttractComponent},
                         { path: 'notes', component: NotesComponent},
                     ]},
 
