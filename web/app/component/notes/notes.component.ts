@@ -59,11 +59,11 @@ export class NotesComponent implements OnInit {
         let proCode = this.constantService.getCurrentProvince().proCode;
         let cityCode = this.constantService.getCurrentCity().cityCode;
         this.addNote.authorName = this.currentUser.loginName;
-        console.log(this.addNote);
         this.noteService.addNote(this.addNote,proCode,cityCode).then(
             result =>{  
                 this.loadNotes();
         });
+        this.clear();
             
     }
     getCurrentUser(): void {

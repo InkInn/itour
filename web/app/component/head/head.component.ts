@@ -28,7 +28,11 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
     private loginUser: User = new User();
 
     //注册用户
-    private registerUser: User = new User();
+    private registerUser: User = {
+            userId:'',
+            loginName: '',
+            password: '',
+    };
 
     private confirmPassword: string = '';
 

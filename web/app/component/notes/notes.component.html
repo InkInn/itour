@@ -7,7 +7,7 @@
         <button pButton type="text" data-toggle="modal" data-target="#addNote" label="添加"></button>
     </div>
     <div *ngSwitchCase=0 style="float:right">
-        <button pButton type="text" data-toggle="modal" data-target="#login" label="登陆"></button>
+        <button pButton type="text" data-toggle="modal" data-target="#login" label="添加"></button>
     </div>
 </div>
 <div class="note" style="float: left">
@@ -26,7 +26,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clear()"><span aria-hidden="true">&times;</span></button>
                 <h4 class="modal-title" id="myModalLabel">添加游记</h4>
             </div>
             <div class="modal-body">
@@ -42,7 +42,7 @@
             </div>
             <div class="modal-footer">
                 <p>作者：{{currentUser.loginName}}</p>
-                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">关闭</button>
                 <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="add()">添加</button>
             </div>
         </div>
