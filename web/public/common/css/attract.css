@@ -1,4 +1,4 @@
-.photo {
+.att .photo {
     float: left;
     font-size: 11px;
     font-family: 'Open Sans', sans-serif;
@@ -6,7 +6,7 @@
     text-align: center;
 }
 
-.box1 {
+.att .box1 {
     width: 300px;
     margin: 20px;
     padding: 10px;
@@ -19,7 +19,7 @@
     -webkit-border-bottom-right-radius: 6px 50px;
 }
 
-.box1:before {
+.att .box1:before {
     content: '';
     width: 50px;
     height: 100px;
@@ -31,7 +31,7 @@
     -webkit-transform: translate(-35px, -40px) skew(0deg, 30deg) rotate(-25deg);
 }
 
-.box1:after {
+.att .box1:after {
     content: '';
     width: 100px;
     height: 100px;
@@ -44,31 +44,31 @@
     -webkit-transform: rotate(2deg) translate(20px, 25px) skew(20deg);
 }
 
-.box1 img {
+.att .box1 img {
     width: 100%;
     margin-top: 15px;
 }
 
-.box1 p {
+.att .box1 p {
     text-align: center;
     height: 80px;
     margin-top: 15px;
     text-align: justify;
 }
 
-.box1 h1 {
+.att .box1 h1 {
     font-size: 20px;
     font-weight: bold;
     margin-top: 5px;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
 }
 
-.box1 a {
+.att .box1 a {
     text-decoration: none;
     color: #4A4A4A !important;
 }
 
-.box1 a:hover {
+.att .box1 a:hover {
     text-decoration: underline;
     color: #6B6B6B !important;
 }

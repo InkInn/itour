@@ -17,19 +17,19 @@ export class AttractionService {
      * 获取景点
      */
     getAttractions(proCode: string, cityCode: string): Promise<Attraction[]>{
-        let tmp: Attraction[] = [];
-        return Promise.resolve(tmp);
-            // let params = new URLSearchParams();
-            // let headers = new Headers();
-            // headers.set('Accept', 'application/json');
+        // let tmp: Attraction[] = [];
+        // return Promise.resolve(tmp);
+            let params = new URLSearchParams();
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
 
-            // params.append('proCode',proCode);
-            // params.append('cityCode',cityCode);
+            params.append('proCode',proCode);
+            params.append('cityCode',cityCode);
 
-            // return this.http.get(`${this.urlPrefix}/getAttractions`, { search: params, headers: headers })
-            //     .toPromise()
-            //     .then(this.extractData)
-            //     .catch(this.handleError);
+            return this.http.get(`${this.urlPrefix}/getAttractions`, { search: params, headers: headers })
+                .toPromise()
+                .then(this.extractData)
+                .catch(this.handleError);
 
     }
 
@@ -42,22 +42,59 @@ export class AttractionService {
      * 
      * @memberOf AttractionService
      */
-    addAttractions(attraction:Attraction): Promise<string> {
-        let tmp: string = '';
-        return Promise.resolve(tmp);
-        // let params = new URLSearchParams();
-        // let headers = new Headers();
-        // headers.set('Accept', 'application/json');
+    addAttraction(attraction:Attraction,proCode:string,cityCode:string): Promise<string> {
+        // let tmp: string = '';
+        // return Promise.resolve(tmp);
+        let params = new URLSearchParams();
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
 
-        // params.append('proCode',proCode);
-        // params.append('cityCode',cityCode);
+        params.append('name',attraction.name);
+        params.append('introduc',attraction.introduc);
+        params.append('attType',attraction.attType);
+        params.append('proCode',proCode);
+        params.append('cityCode',cityCode);
 
-        // return this.http.get(`${this.urlPrefix}/getAttractions`, { search: params, headers: headers })
-        //     .toPromise()
-        //     .then(this.extractData)
-        //     .catch(this.handleError);
+        return this.http.get(`${this.urlPrefix}/addAttraction`, { search: params, headers: headers })
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
 
     }
+
+      updateAttraction(attraction:Attraction,proCode:string,cityCode:string): Promise<string> {
+        // let tmp: string = '';
+        // return Promise.resolve(tmp);
+        let params = new URLSearchParams();
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
+
+        params.append('name',attraction.name);
+        params.append('introduc',attraction.introduc);
+        params.append('attType',attraction.attType);
+        params.append('attCode',attraction.attCode);
+
+        return this.http.get(`${this.urlPrefix}/updateAttraction`, { search: params, headers: headers })
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
+    
+      delAttraction(attraction:Attraction): Promise<string> {
+        // let tmp: string = '';
+        // return Promise.resolve(tmp);
+        let params = new URLSearchParams();
+        let headers = new Headers();
+        headers.set('Accept', 'application/json');
+        params.append('attCode',attraction.attCode);
+
+        return this.http.get(`${this.urlPrefix}/delAttraction`, { search: params, headers: headers })
+            .toPromise()
+            .then(this.extractData)
+            .catch(this.handleError);
+    }
+
 
 
 

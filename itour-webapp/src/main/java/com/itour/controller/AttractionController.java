@@ -1,6 +1,7 @@
 package com.itour.controller;
 
 import java.util.List;
+import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -29,6 +30,42 @@ public class AttractionController {
 		JsonResultHaveObj<List<Attraction>> ret=JsonResultHaveObj.getSuccessInstance();
 		List<Attraction> proList = attractionService.batchSelectAtt(proCode, cityCode);
 		ret.setResult(proList);
+		return ret;
+	}
+	
+	@RequestMapping(value="/addAttraction",method=RequestMethod.GET,consumes = MediaType.ALL_VALUE)
+	@ResponseBody
+	JsonResultHaveObj<String>addAttraction(String name,String introduc,String attType,String proCode, String cityCode, HttpServletRequest request){
+		JsonResultHaveObj<String> ret=JsonResultHaveObj.getSuccessInstance();
+		Attraction attraction = new Attraction();
+		attraction.setName(name);
+		attraction.setAttCode(UUID.randomUUID().toString());
+		attraction.setIntroduc(introduc);
+		attraction.setAttType(attType);
+		attraction.setProCode(proCode);
+		attraction.setCityCode(cityCode);
+		attractionService.addAtt(attraction);
+		return ret;
+	}
+	
+	@RequestMapping(value="/updateAttraction",method=RequestMethod.GET,consumes = MediaType.ALL_VALUE)
+	@ResponseBody
+	JsonResultHaveObj<String>updateAttraction(String name,String introduc,String attType, String attCode, HttpServletRequest request){
+		JsonResultHaveObj<String> ret=JsonResultHaveObj.getSuccessInstance();
+		Attraction attraction = new Attraction();
+		attraction.setName(name);
+		attraction.setAttCode(attCode);
+		attraction.setIntroduc(introduc);
+		attraction.setAttType(attType);
+		attractionService.updateAtt(attraction);
+		return ret;
+	}
+	
+	@RequestMapping(value="/delAttraction",method=RequestMethod.GET,consumes = MediaType.ALL_VALUE)
+	@ResponseBody
+	JsonResultHaveObj<String>delAttraction(String attCode, HttpServletRequest request){
+		JsonResultHaveObj<String> ret=JsonResultHaveObj.getSuccessInstance();
+		attractionService.delAtt(attCode);
 		return ret;
 	}
 

@@ -49,7 +49,6 @@ export class UserService {
     }
 
 
-
     //处理错误
     private handleError(error: any): Promise<any> {
         let errorObj = error.json();

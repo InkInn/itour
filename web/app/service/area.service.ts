@@ -19,15 +19,15 @@ export class AreaService {
      * 获取省份
      */
     getProvinces():Promise<Province[]>{
-          return Promise.resolve(PROVINCE);
-            // let params = new URLSearchParams();
-            // let headers = new Headers();
-            // headers.set('Accept', 'application/json');
+        //  return Promise.resolve(PROVINCE);
+            let params = new URLSearchParams();
+            let headers = new Headers();
+            headers.set('Accept', 'application/json');
 
-            // return this.http.get(`${this.urlPrefix}/getProvinces`, { search: params, headers: headers })
-            //     .toPromise()
-            //     .then(this.extractData)
-            //     .catch(this.handleError);
+            return this.http.get(`${this.urlPrefix}/getProvinces`, { search: params, headers: headers })
+                .toPromise()
+                .then(this.extractData)
+                .catch(this.handleError);
 
     }
 

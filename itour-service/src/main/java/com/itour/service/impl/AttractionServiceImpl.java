@@ -21,4 +21,17 @@ public class AttractionServiceImpl implements AttractionService {
 		return list;
 	}
 
+	public void addAtt(Attraction attraction) {
+		attractionDao.addAtt(attraction);
+	}
+
+	public void updateAtt(Attraction attraction) {
+		attractionDao.updateAtt(attraction);
+		
+	}
+
+	public void delAtt(String attCode) {
+		attractionDao.delAtt(attCode);
+	}
+
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit,EventEmitter,Input ,Output} from '@angular/core';
 import { Router, ActivatedRoute, Params } from '@angular/router';
 import { User } from "../../model/model";
 import { ConstantService } from "../../service/constant.service";
@@ -32,6 +32,9 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
 
     private confirmPassword: string = '';
 
+    @Output() loginListen = new EventEmitter<string>();
+    @Output() logoutListen = new EventEmitter<string>();
+
 
 
     //初始化加载
@@ -55,22 +58,31 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
 
     //登录提交
     login(): void{
-        //this.userService.login(this.loginUser);
-        this.currentUser.loginName ="21312";
-           this.isLogin = 1;
+        this.userService.login(this.loginUser).then(
+            result => {
+                    if(result == "success"){
+                        this.constantService.setCurrentUser(this.loginUser);
+                        this.currentUser = this.constantService.getCurrentUser();
+                        this.loginListen.emit("");
+                        this.isLogin = 1;
+                    }
+            });
+        //this.currentUser.loginName ="21312";
         
     }
 
     //注册提交
     register(): void{
-        //this.userService.register(this.registerUser);
+        this.userService.register(this.registerUser);
     }
 
     //退出
     loginout(): void{
         //清空cookie 刷新当前用户
-        // this.constantService.clearCurrentUser();
+        this.constantService.clearCurrentUser();
+        this.currentUser = this.constantService.getCurrentUser();
         // this.getCurrentUser();
+        this.logoutListen.emit("");
         this.isLogin = 0;
     }
 

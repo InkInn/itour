@@ -33,6 +33,8 @@ export class Attraction{
     public name: string;
     public introduc: string;
     public imgUrl: string;
+    public attCode:string;
+    public attType:string;
 }
 
 /**
@@ -41,7 +43,9 @@ export class Attraction{
 export class Note{
     public title: string;
     public outline: string;
-    public author: string;
+    public authorName: string;
+    public attCode:string;
+    
 }
 
 /**

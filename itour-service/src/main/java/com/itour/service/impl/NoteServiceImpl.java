@@ -21,4 +21,8 @@ public class NoteServiceImpl implements NoteService {
 		return list;
 	}
 
+	public void addNote(Note note) {
+		noteDao.addNote(note);
+	}
+
 }

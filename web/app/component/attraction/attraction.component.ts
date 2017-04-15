@@ -34,6 +34,10 @@ export class AttractComponent implements OnInit {
     private tourist: Attraction[];
     
     private addAttraction: Attraction = new Attraction();
+
+    private updateAttraction: Attraction = new Attraction();
+
+    private delAttraction: Attraction = new Attraction();
     
 
     constructor(
@@ -57,8 +61,35 @@ export class AttractComponent implements OnInit {
         this.loadAttraction();
     }
 
-    add(attraction: Attraction): void{
-        this.attractionService.addAttractions(attraction); 
+    add(): void{
+        this.attractionService.addAttraction(this.addAttraction,this.constantService.getCurrentProvince().proCode,this.constantService.getCurrentCity().cityCode).then(
+            result =>{ 
+                this.loadAttraction();
+            }
+        ); 
+    }
+
+    updateView(attraction:Attraction):void {
+        this.updateAttraction = attraction;
+    }
+
+    update():void{
+        this.attractionService.updateAttraction(this.updateAttraction,this.constantService.getCurrentProvince().proCode,this.constantService.getCurrentCity().cityCode).then(
+            result =>{ 
+                this.loadAttraction();
+            }
+        ); 
+    }
+
+    deleteView(attraction:Attraction):void {
+        this.delAttraction = attraction;
+    }
+
+    delete():void{
+        this.attractionService.delAttraction(this.delAttraction).then(
+        result =>{ 
+                this.loadAttraction();
+        });
     }
 
     loadAttraction(){

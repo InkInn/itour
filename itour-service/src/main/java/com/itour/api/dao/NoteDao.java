@@ -7,5 +7,7 @@ import com.itour.api.model.Note;
 public interface NoteDao {
 	
 	public List<Note> batchSelectNotes(String proCode, String cityCode);
+	
+	public void addNote(Note note);
 
 }

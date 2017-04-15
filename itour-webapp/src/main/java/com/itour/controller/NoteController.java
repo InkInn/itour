@@ -30,4 +30,20 @@ public class NoteController {
 		ret.setResult(noteList);
 		return ret;
 	}
+	
+	
+	@RequestMapping(value="/addNote",method=RequestMethod.GET,consumes = MediaType.ALL_VALUE)
+	@ResponseBody
+	JsonResultHaveObj<String>addNote(String title,String outline,String authorName,String attCode,String proCode, String cityCode, HttpServletRequest request){
+		JsonResultHaveObj<String> ret=JsonResultHaveObj.getSuccessInstance();
+		Note note = new Note();
+		note.setTitle(title);
+		note.setOutline(outline);
+		note.setAttCode(attCode);
+		note.setAuthorName(authorName);
+		note.setProCode(proCode);
+		note.setCityCode(cityCode);
+		noteServie.addNote(note);
+		return ret;
+	}
 }

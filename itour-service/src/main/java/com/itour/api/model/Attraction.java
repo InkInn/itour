@@ -4,7 +4,9 @@ public class Attraction {
 	
 	private String name;
 	
-	private String attCoode;
+	private String attCode;
+	
+	private String attType;
 	
 	public String introduc;
 	
@@ -22,13 +24,21 @@ public class Attraction {
 		this.name = name;
 	}
 
-
-	public String getAttCoode() {
-		return attCoode;
+	
+	public String getAttType() {
+		return attType;
 	}
 
-	public void setAttCoode(String attCoode) {
-		this.attCoode = attCoode;
+	public void setAttType(String attType) {
+		this.attType = attType;
+	}
+
+	public String getAttCode() {
+		return attCode;
+	}
+
+	public void setAttCode(String attCode) {
+		this.attCode = attCode;
 	}
 
 	public String getIntroduc() {

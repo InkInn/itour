@@ -31,4 +31,18 @@ public class NoteDaoImpl implements NoteDao {
 		return list;
 	}
 
+	public void addNote(Note note) {
+		Map<String, Object> params = new HashMap<String, Object>();
+		String sql = (" INSERT INTO itour_note (title,outline,attCode,proCode,cityCode,authorName) VALUES (:title,:outline,:attCode,:proCode,:cityCode,:authorName)");
+		
+		params.put("title", note.getTitle());
+		params.put("outline", note.getOutline());
+		params.put("attCode", note.getAttCode());
+		params.put("proCode", note.getProCode());
+		params.put("cityCode", note.getCityCode());
+		params.put("authorName", note.getAuthorName());
+
+		npJdbcTemplatetea.update(sql, params);
+	}
+
 }
