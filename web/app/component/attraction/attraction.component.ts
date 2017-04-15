@@ -67,6 +67,7 @@ export class AttractComponent implements OnInit {
                 this.loadAttraction();
             }
         ); 
+        this.clear();
     }
 
     updateView(attraction:Attraction):void {
@@ -90,6 +91,12 @@ export class AttractComponent implements OnInit {
         result =>{ 
                 this.loadAttraction();
         });
+    }
+
+    clear():void{
+        this.addAttraction.attType = '';
+        this.addAttraction.name = '';
+        this.addAttraction.introduc = '';
     }
 
     loadAttraction(){

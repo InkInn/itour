@@ -83,6 +83,12 @@ export class NotesComponent implements OnInit {
         this. getCurrentUser();
     }
 
+    clear():void{
+        this.addNote.title = '';
+        this.addNote.outline = '';
+        this.addNote.attCode = '';
+    }
+
     loadNotes(){
             let proCode = this.constantService.getCurrentProvince().proCode;
             let cityCode = this.constantService.getCurrentCity().cityCode;

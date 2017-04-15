@@ -64,16 +64,17 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
                         this.constantService.setCurrentUser(this.loginUser);
                         this.currentUser = this.constantService.getCurrentUser();
                         this.loginListen.emit("");
+                        this.clear();
                         this.isLogin = 1;
                     }
             });
-        //this.currentUser.loginName ="21312";
         
     }
 
     //注册提交
     register(): void{
         this.userService.register(this.registerUser);
+        this.clear();
     }
 
     //退出
@@ -84,6 +85,14 @@ import { TabViewModule, PasswordModule, InputTextModule, ButtonModule} from 'pri
         // this.getCurrentUser();
         this.logoutListen.emit("");
         this.isLogin = 0;
+    }
+
+    clear():void{
+        this.registerUser.loginName = '';
+        this.registerUser.password = '';
+        this.confirmPassword = '';
+        this.loginUser.loginName = '';
+        this.loginUser.password = '';
     }
 
 }

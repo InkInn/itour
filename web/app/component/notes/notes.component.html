@@ -34,7 +34,7 @@
                 <input type="text" pInputText [(ngModel)]="addNote.title" />
                 <h3 class="first">关联景点</h3>
                 <select style="width:174px;height:26px" [ngModel]="addNote.attCode" (ngModelChange)="addNote.attCode=$event">
-                    <option [value] ="attTmp.attCode" *ngFor="let attTmp of attracList" >{{attTmp.name}}:{{attTmp.attCode}}</option>
+                    <option [value] ="attTmp.attCode" *ngFor="let attTmp of attracList" >{{attTmp.name}}</option>
                 </select>
                 <h3 class="first">游记简介</h3>
                 <button pButton type="button" label="Clear" icon="fa-close" (click)="addNote.outline=null" style="float:right"></button>
