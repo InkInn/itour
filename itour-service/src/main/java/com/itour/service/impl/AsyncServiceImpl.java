@@ -1,24 +1,24 @@
 package com.itour.service.impl;
 
-import javax.annotation.Resource;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 
-import com.itour.api.dao.TestDao;
 import com.itour.api.service.AsyncService;
 import com.itour.api.service.TestService;
 
-@Service("testService")
-public class TestServiceImpl implements TestService {
 
+@Service("asyncService")
+@Lazy
+public class AsyncServiceImpl implements AsyncService{
+	
 	@Autowired
-	@Lazy
-	private AsyncService asyncService;
-
-	public int test() {
-		asyncService.asyncMethod();
-		return 0;
+	private TestService testService;
+	
+	@Async("myexecutor")
+	public void asyncMethod() {
+		System.out.println("asyncMethod");
 	}
+	
 }
