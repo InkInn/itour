@@ -24,7 +24,7 @@
 		destroy-method="close">
 		<!-- 数据库驱动，我这里使用的是Mysql数据库 -->
 		<property name="driverClassName">
-			<value>com.mysql.jdbc.Driver</value>
+			<value>${jdbc.driver}</value>
 		</property>
 		<!-- 数据库地址，这里也要注意一下编码 -->
 		<property name="url">
