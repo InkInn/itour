@@ -6,22 +6,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="224e3b76-3635-46b6-aa45-8d3c9ea1ec11" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/json/ApiJsonUtil.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/json/CenterCodeEnum.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/json/DefaultMsgCodeEnum.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/json/JSONUtils.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/json/MsgCode.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/json/MsgCodeBuilder.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/itour-webapp/src/main/java/com/itour/util/JSONUtils.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/itour_webapp_war_exploded.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/itour_webapp_war_exploded.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/itour-parent.iml" afterPath="$PROJECT_DIR$/itour-parent.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/itour-service/itour-service.iml" afterPath="$PROJECT_DIR$/itour-service/itour-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/itour-webapp/itour-webapp.iml" afterPath="$PROJECT_DIR$/itour-webapp/itour-webapp.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-    </list>
+    <list default="true" id="224e3b76-3635-46b6-aa45-8d3c9ea1ec11" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/itour-webapp/target/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/itour-service/target/" />
@@ -116,7 +101,7 @@
   <component name="MavenRunner">
     <option name="skipTests" value="true" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-7" />
     <option name="width" value="697" />
     <option name="height" value="775" />
@@ -711,15 +696,16 @@
       <workItem from="1506943625283" duration="61000" />
       <workItem from="1506943801547" duration="660000" />
       <workItem from="1508770978375" duration="194000" />
-      <workItem from="1508809770022" duration="520000" />
+      <workItem from="1508809770022" duration="614000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="16994000" />
+    <option name="totallyTimeSpent" value="17088000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="FindBugs-IDEA" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
