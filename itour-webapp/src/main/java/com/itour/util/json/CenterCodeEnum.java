@@ -2,10 +2,7 @@ package com.itour.util.json;
 
 public enum CenterCodeEnum {
     PHOTO_CENTER("001"),
-    TAG_CENTER("002"),
-    WALLET_CENTER("003"),
-    BRAND_CENTER("004"),
-    INPET_CENTER("005");
+    ITOUR_CENTER("002");
 
     private String code;
 
