@@ -1,0 +1,124 @@
+.btn-nav .label {
+    margin: 20px 0 20px 0;
+    font-size: 22px;
+    line-height: 40px;
+    color: #111;
+}
+
+.selectbox4 {
+    margin: 25px 0 0 20px;
+    float: right;
+}
+
+.selectbox4 .hd {
+    padding: 4px 0;
+}
+
+.selectbox4 .bd {
+    top: 40px;
+}
+
+.selectbox4 .width {
+    width: 120px !important;
+}
+
+.selectbox4 .hd.width div,
+.selectbox4 .bd.width div {
+    width: 90px !important;
+}
+
+.btn-nav3 {
+    margin: -15px 0 10px;
+}
+
+
+/*公共*/
+
+.pjstu-ana-main {
+    max-width: 1150px;
+    background: #fff;
+    margin: 20px auto;
+    padding: 20px 25px;
+}
+
+.selectbox {
+    position: relative;
+    color: #333;
+    font-size: 14px;
+}
+
+.selectbox .hd {
+    width: 90px;
+    border: 1px solid #f3f3f3;
+    line-height: 30px;
+    border-radius: 3px;
+    background: #fff;
+    font-style: normal;
+}
+
+.selectbox .hd i {
+    display: block;
+    width: 0px;
+    height: 0px;
+    border-top: 5px solid #999;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    float: right;
+    margin: -15px 10px 0 0;
+}
+
+.selectbox .hd i.up {
+    border-top: none;
+    border-bottom: 5px solid #999;
+}
+
+.selectbox .hd:hover {
+    border: 1px solid #1F89CE;
+}
+
+.selectbox .hd:hover i {
+    border-top: none;
+    border-bottom: 5px solid #1F89CE;
+}
+
+.selectbox .bd {
+    position: absolute;
+    top: 32px;
+    left: 0px;
+    z-index: 999;
+    width: 90px;
+    border: 1px solid #f3f3f3;
+    border-radius: 3px;
+    background: #fff;
+    box-shadow: 0px 1px 2px rgba(80, 80, 80, 0.1);
+}
+
+.selectbox .bd a {
+    display: block;
+    line-height: 30px;
+    color: #333;
+    padding-left: 13px;
+    font-style: normal;
+}
+
+.selectbox .bd a:hover,
+.selectbox .bd a.on {
+    color: #fff;
+    background: #1F89CE;
+}
+
+.selectbox .hd {
+    cursor: pointer;
+}
+
+.selectbox .hd.xx-width,
+.selectbox .bd.xx-width {
+    width: 220px;
+    overflow: hidden;
+}
+
+.selectbox .hd.xx-width div,
+.selectbox .bd.xx-width div {
+    width: 190px;
+    height: 30px;
+}

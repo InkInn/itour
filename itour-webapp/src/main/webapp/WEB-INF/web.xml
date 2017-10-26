@@ -1,25 +1,19 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
-        xmlns="http://java.sun.com/xml/ns/javaee" 
-        xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" 
-        xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" 
-        version="3.0">
-  <display-name>Archetype Created Web Application</display-name>
+<!DOCTYPE web-app PUBLIC
+ "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN"
+ "http://java.sun.com/dtd/web-app_2_3.dtd" >
+<web-app>
+    <display-name>Archetype Created Web Application</display-name>
 
     <!-- Spring配置 -->
     <context-param>
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:/config/applicationContext_*.xml</param-value>
     </context-param>
-    
-<!--      <listener>
+    <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
-    </listener -->
+    </listener>
 
-  <!-- spring MVC的核心就是DispatcherServlet，使用springMVC的第一步就是将下面的servlet放入web.xml
-        servlet-name属性非常重要，默认情况下，DispatchServlet会加载这个名字-servlet.xml的文件，如下，就会加载
-        dispather-servlet.xml，也是在WEB-INF目录下。
-   -->
+    <!-- Spring MVC -->
      <servlet>
         <servlet-name>springmvc</servlet-name>
         <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>
@@ -28,13 +22,11 @@
             <param-value>classpath:config/spring-servlet.xml</param-value>
         </init-param>
     </servlet>
-  
-  <!-- 设置dispatchservlet的匹配模式，通过把dispatchservlet映射到/，默认servlet会处理所有的请求，包括静态资源 -->
     <servlet-mapping>
         <servlet-name>springmvc</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-    
+
     <welcome-file-list>
         <welcome-file>index.jsp</welcome-file>
     </welcome-file-list>

@@ -1,0 +1,52 @@
+<div [ngSwitch]="isLogin">
+    <div *ngSwitchCase=0 style="float:right">
+        <button pButton type="text" data-toggle="modal" data-target="#myModal" label="登录"></button>
+        <button pButton type="text" data-toggle="modal" data-target="#myModal" label="注册"></button>
+    </div>
+    <div *ngSwitchCase=1 style="float:right">
+        <button pButton type="text" [label]="currentUser.loginName"></button>
+        <button pButton type="text" (click)="loginout()" label="注销"></button>
+    </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="login()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">登陆/注册</h4>
+            </div>
+            <div class="modal-body">
+                <p-tabView>
+                    <p-tabPanel header="登录">
+                        <div>
+                            <h3 class="first">用户名</h3>
+                            <input type="text" [(ngModel)]="loginUser.loginName" />
+                            <h3 class="first">密码</h3>
+                            <input type="password" [(ngModel)]="loginUser.password" />
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="login()">关闭</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="login()">登录</button>
+                        </div>
+                    </p-tabPanel>
+                    <p-tabPanel header="注册">
+                        <h3 class="first">用户名</h3>
+                        <input type="text" pInputText [(ngModel)]="registerUser.loginName" />
+                        <h3 class="first">密码</h3>
+                        <input type="password" pPassword [(ngModel)]="registerUser.password" />
+                        <h3 class="first">确认密码</h3>
+                        <input type="password" [(ngModel)]="confirmPassword" />
+                        <p *ngIf="confirmPassword != registerUser.password" class="warnInfo">
+                            *两次密码不一致
+                        </p>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">关闭</button>
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="register()">注册</button>
+                        </div>
+                    </p-tabPanel>
+                </p-tabView>
+            </div>
+        </div>
+    </div>
+</div>

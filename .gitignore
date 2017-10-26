@@ -17,5 +17,3 @@ hs_err_pid*.log
 *.log
 *DS_Store
 log/
-.idea/workspace.xml
-.idea/workspace.xml

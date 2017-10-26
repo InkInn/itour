@@ -1,0 +1,91 @@
+<!--头部-->
+<header></header>
+<top (changeProvince)="changeProvince($event)" (changeCity)="changeCity($event)"></top>
+<nav>
+</nav>
+
+<button pButton type="text" data-toggle="modal" data-target="#addAtt" label="添加" style="float: right"></button>
+<div class="att" style="float: left">
+    <div class="photo" *ngFor="let tour of tourist">
+        <div class="box1">
+            <h1>{{tour.name}}</h1>
+            <img src="http://www.wpthemegenerator.com/wp-content/uploads/2012/06/Image.jpg">
+            <span [innerHTML]="tour.introduc"></span>
+            <br/>
+            <button pButton type="text" data-toggle="modal" data-target="#updateAtt" (click)="updateView(tour)" label="修改"></button>
+            <button pButton type="text" data-toggle="modal" data-target="#deleteAtt" (click)="deleteView(tour)" label="删除"></button>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="addAtt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clear()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加景点</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="first">景点名称</h3>
+                <input type="text" pInputText [(ngModel)]="addAttraction.name" />
+                <h3 class="first">景点类别</h3>
+                <select style="width:174px;height:26px" [(ngModel)]="addAttraction.attType" (ngModelChange)="addAttraction.attType=$event">
+                    <option value ="1" [selected]="addAttraction.attType" >名胜古迹</option>
+                    <option value ="2" [selected]="addAttraction.attType" >自然风景</option>
+                </select>
+                <h3 class="first">景点描述</h3>
+                <button pButton type="button" label="Clear" icon="fa-close" (click)="addAttraction.introduc=null" style="float:right"></button>
+                <p-editor [(ngModel)]="addAttraction.introduc" [style]="{'height':'220px'}"></p-editor>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="add()">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="updateAtt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">编辑景点</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="first">景点名称</h3>
+                <input type="text" pInputText [(ngModel)]="updateAttraction.name" />
+                <h3 class="first">景点类别</h3>
+                <select style="width:174px;height:26px" [(ngModel)]="updateAttraction.attType" (ngModelChange)="updateAttraction.attType=$event">
+                    <option value ="1" [selected]="updateAttraction.attType" >名胜古迹</option>
+                    <option value ="2" [selected]="updateAttraction.attType" >自然风景</option>
+                </select>
+                <h3 class="first">景点描述</h3>
+                <button pButton type="button" label="Clear" icon="fa-close" (click)="updateAttraction.introduc=null" style="float:right"></button>
+                <p-editor [(ngModel)]="updateAttraction.introduc" [style]="{'height':'220px'}"></p-editor>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="update()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteAtt" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">删除景点</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="first">{{delAttraction.name}}</h3>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="delete()">确定</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -14,8 +14,8 @@ public class JsonResultHaveObj<T> extends JsonResult {
 	}
 	
 	/**
-	 * ï¿½ï¿½ï¿½Ø³É¹ï¿½ï¿½ï¿½JsonResult
-	 * @return ï¿½É¹ï¿½ï¿½ï¿½JsonResult
+	 * ·µ»Ø³É¹¦µÄJsonResult
+	 * @return ³É¹¦µÄJsonResult
 	 */
 	public static JsonResultHaveObj getSuccessInstance(){
 		JsonResultHaveObj jsonResult=new JsonResultHaveObj();
@@ -24,9 +24,9 @@ public class JsonResultHaveObj<T> extends JsonResult {
 	}
 	
 	/**
-	 * ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Üµï¿½JsonResult
-	 * @param errorInfo ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
-	 * @return	Ê§ï¿½Üµï¿½JsonResult
+	 * ·µ»ØÊ§°ÜµÄJsonResult
+	 * @param errorInfo ´íÎóÐÅÏ¢
+	 * @return	Ê§°ÜµÄJsonResult
 	 */
 	public static JsonResultHaveObj getFailedInstance(String errorInfo){
 		JsonResultHaveObj jsonResult=new JsonResultHaveObj();

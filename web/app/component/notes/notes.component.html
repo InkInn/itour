@@ -1,0 +1,63 @@
+<!--头部-->
+<header (loginListen)="loginListen($event)" (logoutListen)="logoutListen($event)"></header>
+<top (changeProvince)="changeProvince($event)" (changeCity)="changeCity($event)"></top>
+<nav></nav>
+<div [ngSwitch]="isLogin">
+    <div *ngSwitchCase=1 style="float:right">
+        <button pButton type="text" data-toggle="modal" data-target="#addNote" label="添加"></button>
+    </div>
+    <div *ngSwitchCase=0 style="float:right">
+        <button pButton type="text" data-toggle="modal" data-target="#login" label="添加"></button>
+    </div>
+</div>
+<div class="note" style="float: left">
+    <ul>
+        <li *ngFor="let note of noteList">
+            <a>
+                <h2>{{note.title}}</h2>
+                <span [innerHTML]="note.outline"></span>
+                <h3>{{note.authorName}}</h3>
+            </a>
+        </li>
+    </ul>
+</div>
+
+<div class="modal fade" id="addNote" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" (click)="clear()"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">添加游记</h4>
+            </div>
+            <div class="modal-body">
+                <h3 class="first">标题</h3>
+                <input type="text" pInputText [(ngModel)]="addNote.title" />
+                <h3 class="first">关联景点</h3>
+                <select style="width:174px;height:26px" [ngModel]="addNote.attCode" (ngModelChange)="addNote.attCode=$event">
+                    <option [value] ="attTmp.attCode" *ngFor="let attTmp of attracList" >{{attTmp.name}}</option>
+                </select>
+                <h3 class="first">游记简介</h3>
+                <button pButton type="button" label="Clear" icon="fa-close" (click)="addNote.outline=null" style="float:right"></button>
+                <p-editor [(ngModel)]="addNote.outline" [style]="{'height':'220px'}"></p-editor>
+            </div>
+            <div class="modal-footer">
+                <p>作者：{{currentUser.loginName}}</p>
+                <button type="button" class="btn btn-default" data-dismiss="modal" (click)="clear()">关闭</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="add()">添加</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">请先登录</h4>
+            </div>
+            <div class="modal-body">
+            </div>
+        </div>
+    </div>
+</div>
